@@ -5,8 +5,10 @@ namespace RestAPIPractica.RestAPI.Data
 {
     public class RestAPIContext: DbContext
     {
-        public RestAPIContext(DbContextOptions<RestAPIContext> options) : base(options) { }
-
+        public RestAPIContext(DbContextOptions<RestAPIContext> options) : base(options) 
+        {
+        }
+        
         public DbSet<Usuario> Usuarios { get; set; }
     }
 }

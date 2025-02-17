@@ -10,31 +10,25 @@ namespace RestAPIPractica
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            // Configurar DbContext con la cadena de conexión
             builder.Services.AddDbContext<RestAPIContext>(options =>
-             options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer(builder.Configuration.GetConnectionString("PracticaRestAPI")));
 
-
-            builder.Services.AddControllers();
+            IMvcBuilder mvcBuilder = builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-            // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-            builder.Services.AddOpenApi();
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
+            // Configurar el pipeline HTTP
             if (app.Environment.IsDevelopment())
             {
-                app.MapOpenApi();
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
 
             app.UseHttpsRedirection();
-
             app.UseAuthorization();
-
-
             app.MapControllers();
 
             app.Run();
