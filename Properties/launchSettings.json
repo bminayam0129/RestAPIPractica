@@ -1,12 +1,12 @@
 ﻿{
-"profiles": {
-  "http": {
-    "commandName": "Project",
-    "applicationUrl": "http://localhost:7105"
-  },
-  "https": {
-    "commandName": "Project",
-    "applicationUrl": "https://localhost:7098"
+  "profiles": {
+    "RestAPIPractica": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "http://localhost:8052;https://localhost:8053",
+      "dotnetRunMessages": true
+    }
   }
 }
-
